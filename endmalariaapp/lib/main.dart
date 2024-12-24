@@ -265,7 +265,7 @@ class MyApp extends StatelessWidget {
                           foregroundColor:
                               Color(0xFF005B49), // Set the background color
                         ),
-                        child: Text('Get Started'),
+                        child: Text('Place Order'),
                       ),
                     ],
                   ),
