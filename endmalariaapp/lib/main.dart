@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Hello World App',
+      title: 'End Malaria App',
       home: Scaffold(
         appBar: AppBar(
           leading: Padding(
@@ -34,26 +34,32 @@ class MyApp extends StatelessWidget {
                 children: [
                   TextButton(
                       onPressed: () {
-                        // Add your onPressed code here
+                        _scrollToSection(0);
                       },
                       child: Text(
                         'Home',
                         style: TextStyle(color: Colors.white),
                       )),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        _scrollToSection(1);
+                      },
                       child: Text(
                         'Our Product',
                         style: TextStyle(color: Colors.white),
                       )),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        _scrollToSection(2);
+                      },
                       child: Text(
                         'About Us',
                         style: TextStyle(color: Colors.white),
                       )),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        _scrollToSection(3);
+                      },
                       child: Text(
                         'Contact Us',
                         style: TextStyle(color: Colors.white),
@@ -64,6 +70,7 @@ class MyApp extends StatelessWidget {
           ],
         ),
         body: SingleChildScrollView(
+          controller: _scrollController,
           child: Column(
             children: [
               Stack(
@@ -265,4 +272,33 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
+}
+
+// Scroll controller to manage scrolling
+final ScrollController _scrollController = ScrollController();
+
+// Function to scroll to specific sections
+void _scrollToSection(int section) {
+  double offset = 0;
+  switch (section) {
+    case 0: // Home
+      offset = 0;
+      break;
+    case 1: // Our Product
+      offset = 400; // Adjust this value based on the height of the hero section
+      break;
+    case 2: // About Us
+      offset =
+          800; // Adjust this value based on the height of the previous sections
+      break;
+    case 3: // Contact Us
+      offset =
+          1200; // Adjust this value based on the height of the previous sections
+      break;
+  }
+  _scrollController.animateTo(
+    offset,
+    duration: Duration(milliseconds: 500),
+    curve: Curves.easeInOut,
+  );
 }
