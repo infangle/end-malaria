@@ -136,28 +136,59 @@ class MyApp extends StatelessWidget {
                     Column(
                       children: [
                         Text(
-                          'Our Products',
+                          'Our Product',
                           style: TextStyle(
-                            fontSize: 24,
+                            fontSize: 32,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Image.asset('assets/images/logo.jpg'),
-                        Icon(Icons.add),
-                        Text("data"),
-                        Text("data2")
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Text(
-                            "Instructions\n"
-                            "How To use\n"
-                            "lorep ipsum\n"
-                            "lorep ipsum\n"
-                            "lorep ipsum\n",
-                            style: TextStyle(
-                              fontSize: 24,
-                            ))
+                        SizedBox(height: 20), // Space between title and content
+                        Container(
+                          width: MediaQuery.of(context).size.width *
+                              0.8, // 80% width
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                child: Column(
+                                  children: [
+                                    Image.asset('assets/images/Herobg.jpg',
+                                        width: 300, height: 150),
+                                    Icon(Icons.add), // Add to cart icon
+                                    SizedBox(
+                                        height:
+                                            10), // Space between icon and text
+                                    Text("Product Description 1"),
+                                    Text("Product Description 2"),
+                                    Text("Product Description 3"),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(width: 20), // Space between columns
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Instruction Manual",
+                                      style: TextStyle(
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                        height:
+                                            10), // Space between title and paragraph
+                                    Text(
+                                      "Instructions on how to use the product go here. "
+                                      "Make sure to follow the guidelines for optimal use.",
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ],
@@ -197,7 +228,8 @@ class MyApp extends StatelessWidget {
                   ),
                   Column(
                     children: [
-                      Image.asset('assets/images/logo.jpg'),
+                      Image.asset('assets/images/Herobg.jpg',
+                          width: 200, height: 200),
                     ],
                   ),
                 ]),
