@@ -14,15 +14,15 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           leading: Padding(
-            padding: const EdgeInsets.only(left: 24.0, right: 24.0),
-            child:
-                Image.asset("assets/images/logo.jpg", width: 250, height: 400),
+            padding: const EdgeInsets.only(),
+            child: Image.asset("assets/images/logo.jpg"),
           ),
           title: Center(
             child: Text(
               'End-Malaria',
               style: TextStyle(
                 fontSize: 32,
+                color: Colors.white,
               ),
             ),
           ),
@@ -33,7 +33,9 @@ class MyApp extends StatelessWidget {
               child: Row(
                 children: [
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        // Add your onPressed code here
+                      },
                       child: Text(
                         'Home',
                         style: TextStyle(color: Colors.white),
@@ -106,6 +108,9 @@ class MyApp extends StatelessWidget {
                               // Add your onPressed code here
                             },
                             style: ElevatedButton.styleFrom(
+                              // increase button size
+                              minimumSize: Size(150, 50),
+
                               backgroundColor:
                                   Color(0xFF005B49), // Set the background color
                               foregroundColor: Colors.white, // Text color
@@ -129,19 +134,133 @@ class MyApp extends StatelessWidget {
                             fontSize: 24,
                           ),
                         ),
-                        Row(children: [
-                          Image.asset('assets/images/product1.jpg'),
-                          Icon(Icons.add),
-                          Text("data"),
-                          Text("data2")
-                        ])
+                        Image.asset('assets/images/logo.jpg'),
+                        Icon(Icons.add),
+                        Text("data"),
+                        Text("data2")
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                            "Instructions\n"
+                            "How To use\n"
+                            "lorep ipsum\n"
+                            "lorep ipsum\n"
+                            "lorep ipsum\n",
+                            style: TextStyle(
+                              fontSize: 24,
+                            ))
                       ],
                     ),
                   ],
                 ),
               ),
+              // about us section
+              Container(
+                padding: EdgeInsets.all(24),
+                child: Row(children: [
+                  Column(
+                    children: [
+                      Text(
+                        'Who We Are',
+                        style: TextStyle(
+                          fontSize: 32,
+                        ),
+                      ),
+                      Text("We are a team based in Addis Ababa, Ethiopia \n"
+                          "focusing on manufacturing and distributing \n"
+                          "an automated mosquito repellent dispenser \n"
+                          "to help prevail the spread of malaria \n"
+                          "by combating the spread of Mosquitoes \n"
+                          "in an automated and efficient manner."),
+                      // add CTA button
+                      ElevatedButton(
+                        onPressed: () {
+                          // Add your onPressed code here
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xFF005B49),
+                          foregroundColor: Colors.white,
+                          // Set the background color
+                        ),
+                        child: Text('Contact Us'),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Image.asset('assets/images/logo.jpg'),
+                    ],
+                  ),
+                ]),
+              ),
+
+              // CTA section
+              Container(
+                // change container background color
+                color: Color(0xFF005B49),
+                child: Padding(
+                  padding: const EdgeInsets.all(24.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Ready to protect yourself from Malaria?',
+                        style: TextStyle(
+                          fontSize: 32,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+
+                      // Space between text and button
+                      ElevatedButton(
+                        onPressed: () {
+                          // Add your onPressed code here
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          foregroundColor:
+                              Color(0xFF005B49), // Set the background color
+                        ),
+                        child: Text('Get Started'),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
+        ),
+        bottomNavigationBar: BottomAppBar(
+          color: Colors.white,
+          child: Container(
+              height: 60,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  IconButton(
+                    icon: Icon(Icons.home),
+                    onPressed: () {
+                      // Add your onPressed code here
+                    },
+                  ),
+                  IconButton(
+                      icon: Icon(Icons.account_circle),
+                      onPressed: () {
+                        // Add your onPressed code here
+                      }),
+                  IconButton(
+                    icon: Icon(Icons.settings),
+                    onPressed: () {
+                      // Add your onPressed code here
+                    },
+                  ),
+                ],
+              )),
         ),
       ),
     );
